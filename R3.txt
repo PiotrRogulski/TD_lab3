@@ -1,10 +1,10 @@
      +--------------------------------------------------------------------+
-     ¦                        • MobaXterm 20.5 •                          ¦
-     ¦            (SSH client, X-server and networking tools)             ¦
-     ¦                                                                    ¦
-     ¦ ? Telnet session to 10.14.0.221                                    ¦
-     ¦ ? Your DISPLAY is set to 192.168.1.107:0.0                         ¦
-     ¦ ? For more info, ctrl+click on help or visit our website           ¦
+     Â¦                        â€¢ MobaXterm 20.5 â€¢                          Â¦
+     Â¦            (SSH client, X-server and networking tools)             Â¦
+     Â¦                                                                    Â¦
+     Â¦ ? Telnet session to 10.14.0.221                                    Â¦
+     Â¦ ? Your DISPLAY is set to 192.168.1.107:0.0                         Â¦
+     Â¦ ? For more info, ctrl+click on help or visit our website           Â¦
      +--------------------------------------------------------------------+
 
 Connected to Dynamips VM "R3" (ID 4, type c3600) - Console port

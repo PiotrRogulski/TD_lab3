@@ -10,6 +10,10 @@
 \usepackage[margin=1in]{geometry}
 \usepackage[babel=true, tracking=true]{microtype}
 \usepackage{minted}
+\usepackage{array}
+\usepackage{colortbl}
+
+\renewcommand*{\thesection}{\Alph{section}}
 
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \setminted{frame=single, bgcolor=bg, breaklines=true}
@@ -22,28 +26,110 @@
 \author{Piotr Rogulski 305867 \\ Szymon Sieradzki 305881}
 \date{\today}
 
+\IfFontExistsTF{JetBrainsMono-Regular}{
+    \setmonofont{JetBrainsMono}[
+        UprightFont = *-Light,
+        BoldFont = *-Regular,
+        ItalicFont = *-Light-Italic,
+        Scale = MatchLowercase
+    ]
+}{}
+
 \begin{document}
 
 \maketitle
-\section{Schemat adresacji}
+\section*{Schemat adresacji}
 
-\section{show cdp neighbours i show ip route po ustawieniu ip R1-R5}
-\inputminted[label=Przełączanie na ipv6, firstline=152, lastline=170]{text}{R1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=293, lastline=316]{text}{R2_1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=210, lastline=237]{text}{R5.txt}
-\section{show ip ospf i show ip route po ospf network R1-R5}
-\inputminted[label=Przełączanie na ipv6, firstline=228, lastline=279]{text}{R1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=366, lastline=422]{text}{R2_1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=285, lastline=339]{text}{R5.txt}
-\section{show ip ospf dataabse R5}
-\inputminted[label=Przełączanie na ipv6, firstline=366, lastline=595]{text}{R5.txt}
-\section{show ip ospf databse po zmianie area dla R1 i R5}
-\inputminted[label=Przełączanie na ipv6, firstline=309, lastline=390]{text}{R1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=597, lastline=680]{text}{R5.txt}
-\section{tu omowic routing table z r1 to chyba najgorze xddd}
-jeszcze tu jakies banwidth link r2-r4 nwm o co cho
-znowu ping i traceroute r4 do r1
-\section{show ip route R1-R5 po zmianie na RIP i database na R5}
-\inputminted[label=Przełączanie na ipv6, firstline=829, lastline=844]{text}{R1.txt}
-\inputminted[label=Przełączanie na ipv6, firstline=709, lastline=817]{text}{R5.txt}
+\begin{table}[!htb]
+    \caption{Adresacja interfejsów}
+    \centering
+    \begin{tabular}{*4c}
+        \hline\hline
+            \textbf{Router} & \textbf{Interfejs} & \textbf{Adres IP} & \textbf{Podsieć} \\
+        \hline
+            \rowcolor{bg}
+            R1 & e0/0 & 192.168.11.1  & 192.168.11.0/30 \\
+        \hline
+            \rowcolor{bg}
+            R2 & e0/0 & 192.168.11.2  & 192.168.11.0/30 \\
+               & e0/1 & 192.168.10.1  & 192.168.10.0/30 \\
+               & e0/2 & 192.168.10.5  & 192.168.10.4/30 \\
+        \hline
+            R3 & e0/0 & 192.168.10.1  & 192.168.10.0/30 \\
+               & e0/2 & 192.168.10.6  & 192.168.10.4/30 \\
+               & e0/3 & 192.168.10.17 & 192.168.10.16/30 \\
+        \hline
+            R4 & e0/1 & 192.168.10.2  & 192.168.10.0/30 \\
+               & e0/2 & 192.168.10.5  & 192.168.10.4/30 \\
+               & e0/3 & 192.168.10.18 & 192.168.10.16/30 \\
+        \hline
+            R5 & e0/0 & 192.168.10.2  & 192.168.10.0/30 \\
+               & e0/2 & 192.168.10.6  & 192.168.10.4/30 \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+
+\section{Podstawowa konfiguracja urządzenia}
+
+\subsection*{Router R1}
+\inputminted[label=\#show cdp neighbors, firstline=156, lastline=157]{text}{R1.txt}%
+\vspace{-1cm}%
+\inputminted[label=\#show ip route, firstline=167, lastline=170]{text}{R1.txt}
+
+\subsection*{Router R2}
+\inputminted[label=\#show cdp neighbors, firstline=297, lastline=300]{text}{R2_1.txt}%
+\vspace{-1cm}%
+\inputminted[label=\#show ip route, firstline=310, lastline=316]{text}{R2_1.txt}
+
+\subsection*{Router R3}
+\inputminted[label=\#show cdp neighbors, firstline=215, lastline=218]{text}{R3.txt}%
+\vspace{-1cm}%
+\inputminted[label=\#show ip route, firstline=203, lastline=208]{text}{R3.txt}
+
+\subsection*{Router R4}
+\inputminted[label=\#show cdp neighbors, firstline=203, lastline=206]{text}{R4.txt}%
+\vspace{-1cm}%
+\inputminted[label=\#show ip route, firstline=173, lastline=178]{text}{R4.txt}
+
+\subsection*{Router R5}
+\inputminted[label=\#show cdp neighbors, firstline=221, lastline=223]{text}{R5.txt}%
+\vspace{-1cm}%
+\inputminted[label=\#show ip route, firstline=232, lastline=237]{text}{R5.txt}
+
+\section{Wstępna konfiguracja protokołu OSPF}
+
+\inputminted[label=Router R1, firstline=228, lastline=279]{text}{R1.txt}
+\inputminted[label=Router R2, firstline=366, lastline=422]{text}{R2_1.txt}
+\inputminted[label=Router R3, firstline=286, lastline=341]{text}{R3.txt}
+\inputminted[label=Router R4, firstline=269, lastline=324]{text}{R4.txt}
+\inputminted[label=Router R5, firstline=285, lastline=339]{text}{R5.txt}
+
+\section{Baza danych OSPF}
+
+\inputminted[label=Router R5, firstline=366, lastline=595]{text}{R5.txt}
+
+\section{Wieloobszarowy OSPF}
+
+\inputminted[label=Router R1, firstline=309, lastline=390]{text}{R1.txt}
+\inputminted[label=Router R5, firstline=597, lastline=680]{text}{R5.txt}
+
+\section{Koszty łącza OSPF}
+
+\inputminted[label=Router R4 - \#ping 192.168.11.1, firstline=377, lastline=379]{text}{R4.txt}
+\inputminted[label=Router R4 - \#traceroute 192.168.11.1, firstline=394, lastline=397]{text}{R4.txt}
+
+\inputminted[label=Router R2 - koszty łączy, firstline=247, lastline=251]{text}{R2.txt}
+
+\inputminted[label=Router R2 - koszty łączy po zmianie, firstline=325, lastline=372]{text}{R2.txt}
+
+\inputminted[label=Router R4 - \#ping 192.168.11.1, firstline=535, lastline=537]{text}{R4.txt}
+\inputminted[label=Router R4 - \#traceroute 192.168.11.1, firstline=541, lastline=545]{text}{R4.txt}
+
+\section{Redystrybucja tras}
+
+\inputminted[label=Router R1 - \#show ip route, firstline=838, lastline=844]{text}{R1.txt}
+\inputminted[label=Router R5 - \#show ip route, firstline=718, lastline=728]{text}{R5.txt}
+
+\inputminted[label=Router R5 - stan końcowy, firstline=729, lastline=817]{text}{R5.txt}
+
 \end{document}
