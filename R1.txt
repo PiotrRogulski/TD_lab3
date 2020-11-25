@@ -1,0 +1,965 @@
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 20.5 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ → Telnet session to 10.14.0.221                                    │
+     │ → Your DISPLAY is set to 192.168.3.107:0.0                         │
+     │ → For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Connected to Dynamips VM "R1" (ID 2, type c3600) - Console port
+Press ENTER to get the prompt.
+ROMMON emulation microcode.
+
+                           Launching IOS image at 0x80008000...
+
+                                                               Smart Init is disabled. IOMEM set to: 5
+
+                                                                                                        Using i          omem percentage: 5
+
+              Restricted Rights Legend
+
+Use, duplication, or disclosure by the Government is
+subject to restrictions as set forth in subparagraph
+(c) of the Commercial Computer Software - Restricted
+Rights clause at FAR sec. 52.227-19 and subparagraph
+(c) (1) (ii) of the Rights in Technical Data and Computer
+Software clause at DFARS sec. 252.227-7013.
+
+           cisco Systems, Inc.
+           170 West Tasman Drive
+           San Jose, California 95134-1706
+
+
+
+Cisco IOS Software, 3600 Software (C3640-A3JS-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Wed 18-Aug-10 06:58 by prod_rel_team
+
+Cisco 3640 (R4700) processor (revision 0xFF) with 124928K/6144K bytes of memory.
+Processor board ID FF1045C5
+R4700 CPU at 100MHz, Implementation 33, Rev 1.2
+4 Ethernet interfaces
+DRAM configuration is 64 bits wide with parity enabled.
+125K bytes of NVRAM.
+8192K bytes of processor board System flash (Read/Write)
+
+SETUP: new interface Ethernet0/0 placed in "shutdown" state
+SETUP: new interface Ethernet0/1 placed in "shutdown" state
+SETUP: new interface Ethernet0/2 placed in "shutdown" state
+SETUP: new interface Ethernet0/3 placed in "shutdown" state
+% There may not be enough space available to collect the complete crashinfo
+% It would be advisable to have 280755 bytes free space on flash:crashinfo
+
+
+Press RETURN to get started!
+
+
+*Mar  1 00:00:11.395: %LINEPROTO-5-UPDOWN: Line protocol on Interface VoIP-Null0, changed state to up
+*Mar  1 00:00:11.403: %LINK-3-UPDOWN: Interface Ethernet0/0, changed state to up
+*Mar  1 00:00:11.407: %LINK-3-UPDOWN: Interface Ethernet0/1, changed state to up
+*Mar  1 00:00:11.415: %LINK-3-UPDOWN: Interface Ethernet0/2, changed state to up
+*Mar  1 00:00:11.419: %LINK-3-UPDOWN: Interface Ethernet0/3, changed state to up
+*Mar  1 00:00:11.427: %LINEPROTO-5-UPDOWN: Line protocol on Interface IPv6-mpls, changed state to up
+*Mar  1 00:00:12.299: %SYS-5-CONFIG_I: Configured from memory by console
+*Mar  1 00:00:12.447: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/0, changed state to down
+*Mar  1 00:00:12.451: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/1, changed state to down
+*Mar  1 00:00:12.455: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/2, changed state to down
+*Mar  1 00:00:12.455: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/3, changed state to down
+*Mar  1 00:00:13.055: %SYS-5-RESTART: System restarted --
+Cisco IOS Software, 3600 Software (C3640-A3JS-M), Version 12.4(25d), RELEASE SOFTWARE (fc1)
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2010 by Cisco Systems, Inc.
+Compiled Wed 18-Aug-10 06:58 by prod_rel_team
+*Mar  1 00:00:13.087: %SNMP-5-COLDSTART: SNMP agent on host R1 is undergoing a cold start
+*Mar  1 00:00:14.303: %LINK-5-CHANGED: Interface Ethernet0/0, changed state to administratively down
+*Mar  1 00:00:14.311: %LINK-5-CHANGED: Interface Ethernet0/1, changed state to administratively down
+*Mar  1 00:00:14.319: %LINK-5-CHANGED: Interface Ethernet0/2, changed state to administratively down
+*Mar  1 00:00:14.327: %LINK-5-CHANGED: Interface Ethernet0/3, changed state to administratively down 2020-11-21 12:00:16 D44fsUzb6GUGc466
+R1#enable
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface Ethernet 0/0
+R1(config-if)#ip address 192.168.11.1 255.255.255.252
+R1(config-if)#exit
+R1(config)#^Z
+R1#
+*Mar  1 00:03:05.075: %SYS-5-CONFIG_I: Configured from console by console
+R1#show interface Ethernet 0/0
+Ethernet0/0 is administratively down, line protocol is down
+  Hardware is AmdP2, address is cc02.0716.0000 (bia cc02.0716.0000)
+  Internet address is 192.168.11.1/30
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface Ethernet 0/0
+R1(config-if)#no shutdown
+R1(config-if)#
+*Mar  1 00:04:22.583: %LINK-3-UPDOWN: Interface Ethernet0/0, changed state to up
+*Mar  1 00:04:23.583: %LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet0/0, changed state to up
+R1(config-if)#exit
+R1(config)#^Z
+R1#sh
+*Mar  1 00:04:31.123: %SYS-5-CONFIG_I: Configured from console by console
+R1#show interface Ethernet 0/0
+Ethernet0/0 is up, line protocol is up
+  Hardware is AmdP2, address is cc02.0716.0000 (bia cc02.0716.0000)
+  Internet address is 192.168.11.1/30
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output 00:00:08, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     7 packets output, 1245 bytes, 0 underruns
+     0 output errors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+R1#show cdp neighbors
+Capability Codes: R - Router, T - Trans Bridge, B - Source Route Bridge
+                  S - Switch, H - Host, I - IGMP, r - Repeater
+
+Device ID        Local Intrfce     Holdtme    Capability  Platform  Port ID
+R2               Eth 0/0            174        R S I      3640      Eth 0/0
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#interface loopack 0
+                         ^
+% Invalid input detected at '^' marker.
+
+R1(config)#interface loopack 1
+                         ^
+% Invalid input detected at '^' marker.
+
+R1(config)#interface loopback 0
+R1(config-if)#
+*Mar  1 00:37:08.115: %LINEPROTO-5-UPDOWN: Line protocol on Interface Loopback0, changed state to up
+R1(config-if)#ip address 192.168.0.1 255.255.255.255
+R1(config-if)#exit
+R1(config)#^Z
+R1#
+*Mar  1 00:38:09.095: %SYS-5-CONFIG_I: Configured from console by console
+R1#show loopback 0
+          ^
+% Invalid input detected at '^' marker.
+
+R1#show interface loopback 0
+Loopback0 is up, line protocol is up
+  Hardware is Loopback
+  Internet address is 192.168.0.1/32
+  MTU 1514 bytes, BW 8000000 Kbit/sec, DLY 5000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation LOOPBACK, loopback not set
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/0 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 output buffer failures, 0 output buffers swapped out
+R1#router ospf 1
+    ^
+% Invalid input detected at '^' marker.
+
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#router ospf 1
+R1(config-router)#network 192.168.10.0 0.0.1.31 area 0
+% OSPF: Invalid address/mask combination (discontiguous mask)
+R1(config-router)#network 192.168.10.0 0.0.1.255 area 0
+R1(config-router)#exit
+R1(config)#^Z
+R1#sho
+*Mar  1 00:46:15.431: %SYS-5-CONFIG_I: Configured from console by console
+R1#show ip ospf
+ Routing Process "ospf 1" with ID 192.168.0.1
+ Start time: 00:41:12.040, Time elapsed: 00:05:15.920
+ Supports only single TOS(TOS0) routes
+ Supports opaque LSA
+ Supports Link-local Signaling (LLS)
+ Supports area transit capability
+ Router is not originating router-LSAs with maximum metric
+ Initial SPF schedule delay 5000 msecs
+ Minimum hold time between two consecutive SPFs 10000 msecs
+ Maximum wait time between two consecutive SPFs 10000 msecs
+ Incremental-SPF disabled
+ Minimum LSA interval 5 secs
+ Minimum LSA arrival 1000 msecs
+ LSA group pacing timer 240 secs
+ Interface flood pacing timer 33 msecs
+ Retransmission pacing timer 66 msecs
+ Number of external LSA 0. Checksum Sum 0x000000
+ Number of opaque AS LSA 0. Checksum Sum 0x000000
+ Number of DCbitless external and opaque AS LSA 0
+ Number of DoNotAge external and opaque AS LSA 0
+ Number of areas in this router is 1. 1 normal 0 stub 0 nssa
+ Number of areas transit capable is 0
+ External flood list length 0
+    Area BACKBONE(0) (Inactive)
+        Number of interfaces in this area is 1
+        Area has no authentication
+        SPF algorithm last executed 00:00:51.576 ago
+        SPF algorithm executed 1 times
+        Area ranges are
+        Number of LSA 1. Checksum Sum 0x00934F
+        Number of opaque link LSA 0. Checksum Sum 0x000000
+        Number of DCbitless LSA 0
+        Number of indication LSA 0
+        Number of DoNotAge LSA 0
+        Flood list length 0
+
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#
+*Mar  1 00:48:00.539: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1#conf
+Configuring from terminal, memory, or network [terminal]?
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#^Z
+R1#con
+*Mar  1 00:51:53.867: %SYS-5-CONFIG_I: Configured from console by console
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#in Ethernet 0/0
+R1(config-if)#network 192.168.10.0 0.0.1.255 area 1
+                 ^
+% Invalid input detected at '^' marker.
+
+R1(config-if)#exit
+R1(config)#router ospf 1
+R1(config-router)#network 192.168.10.0 0.0.1.255 area 1
+R1(config-router)#
+*Mar  1 01:01:12.423: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from FULL to DOWN, Neighbor Down: Interface down or detached
+*Mar  1 01:01:12.443: %OSPF-6-AREACHG: 192.168.10.0/23 changed from area 0 to area 1
+R1(config-router)#
+*Mar  1 01:01:53.011: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1(config-router)#network 192.168.11.0 0.0.0.3 area 1
+R1(config-router)#exit
+R1(config)#^Z
+R1#
+R1#s
+*Mar  1 01:04:19.151: %SYS-5-CONFIG_I: Configured from console by console
+R1#show ip ospf database
+
+            OSPF Router with ID (192.168.0.1) (Process ID 1)
+
+                Router Link States (Area 1)
+
+Link ID         ADV Router      Age         Seq#       Checksum Link count
+192.168.0.1     192.168.0.1     154         0x80000002 0x008ED9 1
+192.168.0.2     192.168.0.2     155         0x80000002 0x008FD4 1
+
+                Net Link States (Area 1)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+192.168.11.2    192.168.0.2     155         0x80000001 0x001372
+
+                Summary Net Link States (Area 1)
+
+Link ID         ADV Router      Age         Seq#       Checksum
+192.168.10.0    192.168.0.2     215         0x80000001 0x00A3B3
+192.168.10.4    192.168.0.2     215         0x80000001 0x007BD7
+192.168.10.16   192.168.0.2     215         0x80000001 0x0067D5
+R1#show ip ospf database summary
+
+            OSPF Router with ID (192.168.0.1) (Process ID 1)
+
+                Summary Net Link States (Area 1)
+
+  Routing Bit Set on this LSA
+  LS age: 280
+  Options: (No TOS-capability, DC, Upward)
+  LS Type: Summary Links(Network)
+  Link State ID: 192.168.10.0 (summary Network Number)
+  Advertising Router: 192.168.0.2
+  LS Seq Number: 80000001
+  Checksum: 0xA3B3
+  Length: 28
+  Network Mask: /30
+        TOS: 0  Metric: 10
+
+  Routing Bit Set on this LSA
+  LS age: 280
+  Options: (No TOS-capability, DC, Upward)
+  LS Type: Summary Links(Network)
+  Link State ID: 192.168.10.4 (summary Network Number)
+  Advertising Router: 192.168.0.2
+  LS Seq Number: 80000001
+  Checksum: 0x7BD7
+  Length: 28
+  Network Mask: /30
+        TOS: 0  Metric: 10
+
+  Routing Bit Set on this LSA
+  LS age: 298
+  Options: (No TOS-capability, DC, Upward)
+  LS Type: Summary Links(Network)
+  Link State ID: 192.168.10.16 (summary Network Number)
+  Advertising Router: 192.168.0.2
+  LS Seq Number: 80000001
+  Checksum: 0x67D5
+  Length: 28
+  Network Mask: /30
+        TOS: 0  Metric: 20
+
+R1# show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.10.0/30 is subnetted, 3 subnets
+O IA    192.168.10.0 [110/20] via 192.168.11.2, 00:04:27, Ethernet0/0
+O IA    192.168.10.4 [110/20] via 192.168.11.2, 00:04:27, Ethernet0/0
+O IA    192.168.10.16 [110/30] via 192.168.11.2, 00:04:27, Ethernet0/0
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#
+*Mar  1 01:12:10.991: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1#show ip ospf interface
+Ethernet0/0 is up, line protocol is up
+  Internet Address 192.168.11.1/30, Area 1
+  Process ID 1, Router ID 192.168.0.1, Network Type BROADCAST, Cost: 10
+  Transmit Delay is 1 sec, State BDR, Priority 1
+  Designated Router (ID) 192.168.0.2, Interface address 192.168.11.2
+  Backup Designated router (ID) 192.168.0.1, Interface address 192.168.11.1
+  Flush timer for old DR LSA due in 00:02:13
+  Timer intervals configured, Hello 10, Dead 40, Wait 40, Retransmit 5
+    oob-resync timeout 40
+    Hello due in 00:00:05
+  Supports Link-local Signaling (LLS)
+  Index 1/1, flood queue length 0
+  Next 0x0(0)/0x0(0)
+  Last flood scan length is 1, maximum is 1
+  Last flood scan time is 0 msec, maximum is 0 msec
+  Neighbor Count is 1, Adjacent neighbor count is 1
+    Adjacent with neighbor 192.168.0.2  (Designated Router)
+  Suppress hello for 0 neighbor(s)
+R1#
+*Mar  1 01:13:37.187: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R1#
+*Mar  1 01:13:59.003: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#show i
+*Mar  1 01:14:50.799: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R1#show ip ospf interface
+*Mar  1 01:15:08.827: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1#show ip ospf interface brief
+Interface    PID   Area            IP Address/Mask    Cost  State Nbrs F/C
+Et0/0        1     1               192.168.11.1/30    10    BDR   1/1
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.10.0/30 is subnetted, 3 subnets
+O IA    192.168.10.0 [110/20] via 192.168.11.2, 00:00:23, Ethernet0/0
+O IA    192.168.10.4 [110/20] via 192.168.11.2, 00:00:23, Ethernet0/0
+O IA    192.168.10.16 [110/30] via 192.168.11.2, 00:00:23, Ethernet0/0
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#ping 192.168.10.2
+
+Type escape sequence to abort.
+Sending 5, 100-byte ICMP Echos to 192.168.10.2, timeout is 2 seconds:
+!!!!!
+Success rate is 100 percent (5/5), round-trip min/avg/max = 228/556/1856 ms
+R1#traceroute 192.168.10.2
+
+Type escape sequence to abort.
+Tracing the route to 192.168.10.2
+
+  1 192.168.11.2 812 msec 224 msec 236 msec
+  2  *  *  *
+  3  *  *  *
+  4  *  *  *
+  5  *  *  *
+  6  *  *  *
+  7  *  *  *
+  8  *  *  *
+  9  *  *  *
+ 10  *  *  *
+ 11  *
+    192.168.10.2 1272 msec *
+R1#traceroute 192.168.10.2
+
+Type escape sequence to abort.
+Tracing the route to 192.168.10.2
+
+  1 192.168.11.2 228 msec 48 msec 24 msec
+  2  *  *  *
+  3  *
+    192.168.10.2 2564 msec 92 msec
+R1#sho
+*Mar  1 01:29:22.563: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R1#sho
+*Mar  1 01:29:32.647: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Done
+R1#show interface
+Ethernet0/0 is up, line protocol is up
+  Hardware is AmdP2, address is cc02.0716.0000 (bia cc02.0716.0000)
+  Internet address is 192.168.11.1/30
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input 00:00:00, output 00:00:00, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 5/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     816 packets input, 98705 bytes, 0 no buffer
+     Received 687 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     1290 packets output, 123480 bytes, 0 underruns
+     0 output e
+*Mar  1 01:37:45.303: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from LOADING to FULL, Loading Donerrors, 0 collisions, 1 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+Ethernet0/1 is administratively down, line protocol is down
+  Hardware is AmdP2, address is cc02.0716.0001 (bia cc02.0716.0001)
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+Ethernet0/2 is administratively down, line protocol is down
+  Hardware is AmdP2, address is cc02.0716.0002 (bia cc02.0716.0002)
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+Ethernet0/3 is administratively down, line protocol is down
+  Hardware is AmdP2, address is cc02.0716.0003 (bia cc02.0716.0003)
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation ARPA, loopback not set
+  Keepalive set (10 sec)
+  ARP type: ARPA, ARP Timeout 04:00:00
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/40 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored
+     0 input packets with dribble condition detected
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 babbles, 0 late collision, 0 deferred
+     0 lost carrier, 0 no carrier
+     0 output buffer failures, 0 output buffers swapped out
+Loopback0 is up, line protocol is up
+  Hardware is Loopback
+  Internet address is 192.168.0.1/32
+  MTU 1514 bytes, BW 8000000 Kbit/sec, DLY 5000 usec,
+     reliability 255/255, txload 1/255, rxload 1/255
+  Encapsulation LOOPBACK, loopback not set
+  Last input never, output never, output hang never
+  Last clearing of "show interface" counters never
+  Input queue: 0/75/0/0 (size/max/drops/flushes); Total output drops: 0
+  Queueing strategy: fifo
+  Output queue: 0/0 (size/max)
+  5 minute input rate 0 bits/sec, 0 packets/sec
+  5 minute output rate 0 bits/sec, 0 packets/sec
+     0 packets input, 0 bytes, 0 no buffer
+     Received 0 broadcasts, 0 runts, 0 giants, 0 throttles
+     0 input errors, 0 CRC, 0 frame, 0 overrun, 0 ignored, 0 abort
+     0 packets output, 0 bytes, 0 underruns
+     0 output errors, 0 collisions, 0 interface resets
+     0 unknown protocol drops
+     0 output buffer failures, 0 output buffers swapped out
+R1#show ip ospf interface | include protocol | Cost
+Ethernet0/0 is up, line protocol is up
+  Process ID 1, Router ID 192.168.0.1, Network Type BROADCAST, Cost: 10
+R1#show interface | include protocol | BW
+Ethernet0/0 is up, line protocol is up
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     0 unknown protocol drops
+Ethernet0/1 is administratively down, line protocol is down
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     0 unknown protocol drops
+Ethernet0/2 is administratively down, line protocol is down
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     0 unknown protocol drops
+Ethernet0/3 is administratively down, line protocol is down
+  MTU 1500 bytes, BW 10000 Kbit/sec, DLY 1000 usec,
+     0 unknown protocol drops
+Loopback0 is up, line protocol is up
+  MTU 1514 bytes, BW 8000000 Kbit/sec, DLY 5000 usec,
+     0 unknown protocol drops
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#router ospf 1
+R1(config-router)#protocol shutdown
+                     ^
+% Invalid input detected at '^' marker.
+
+R1(config-router)#
+*Mar  1 01:43:18.471: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:43:34.963: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:43:44.943: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#exit
+R1(config)#protocol
+*Mar  1 01:43:54.939: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#protocol shutdown
+*Mar  1 01:43:58.471: %OSPF-5-ADJCHG: Process 1, Nbr 192.168.0.2 on Ethernet0/0 from FULL to DOWN, Neighbor Down: Dead timer expired
+R1(config)#protocol shutdown
+              ^
+% Invalid input detected at '^' marker.
+
+R1(config)#
+*Mar  1 01:44:04.119: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:11.271: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:18.435: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:24.907: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:34.955: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:44.943: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:44:54.955: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:45:04.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#
+*Mar  1 01:45:14.931: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#router ospf 1
+R1(config-router)#
+*Mar  1 01:45:24.931: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#protocol shutdown
+                     ^
+% Invalid input detected at '^' marker.
+
+R1(config-router)#
+*Mar  1 01:45:30.823: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#exit
+R1(config)#
+*Mar  1 01:45:44.939: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#in Ethernet 0/0
+R1(config-if)#
+*Mar  1 01:45:51.559: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#no switchport
+                  ^
+% Invalid input detected at '^' marker.
+
+R1(config-if)#
+*Mar  1 01:46:04.963: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:46:11.311: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#ip ospg
+*Mar  1 01:46:32.591: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#ip ospf shutdown
+                      ^
+% Invalid input detected at '^' marker.
+
+R1(config-if)#
+*Mar  1 01:46:50.667: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:04.951: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:14.919: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:24.911: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:34.951: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:49.019: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:47:54.919: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:04.983: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:14.923: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:24.947: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:34.955: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:44.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:48:54.927: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:04.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:14.919: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:24.939: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:34.927: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:44.947: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:49:54.939: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#
+*Mar  1 01:50:04.931: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-if)#exit
+R1(config)#router ospf
+*Mar  1 01:50:14.943: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config)#router ospf 1
+R1(config-router)#protocol shutdown
+                     ^
+% Invalid input detected at '^' marker.
+
+R1(config-router)#
+*Mar  1 01:50:24.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:50:34.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:50:44.959: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:50:54.915: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:04.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:14.919: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:24.943: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:34.959: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:44.923: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:51:54.915: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:04.915: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:14.931: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:24.963: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:34.931: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:44.939: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:52:54.915: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:53:04.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:53:14.943: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:53:24.955: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#
+*Mar  1 01:53:34.935: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#no
+*Mar  1 01:53:44.911: %OSPF-4-ERRRCV: Received invalid packet: mismatch area ID, from backbone area must be virtual-link but not found from 192.168.11.2, Ethernet0/0
+R1(config-router)#exit
+R1(config)#no router ospf 1
+R1(config)#exit
+R1#
+*Mar  1 01:54:04.767: %SYS-5-CONFIG_I: Configured from console by console
+R1#show ip ospf
+
+R1#router rip
+    ^
+% Invalid input detected at '^' marker.
+
+R1#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+R1(config)#router rip
+R1(config-router)#version 2
+R1(config-router)#network 192.168.11.0 0.0.0.3 area 1
+                                       ^
+% Invalid input detected at '^' marker.
+
+R1(config-router)#network 192.168.11.0
+R1(config-router)#exit
+R1(config)#^Z
+R1#
+*Mar  1 01:57:15.979: %SYS-5-CONFIG_I: Configured from console by console
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R    192.168.10.0/24 [120/2] via 192.168.11.2, 00:00:20, Ethernet0/0
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#show ip route
+Codes: C - connected, S - static, R - RIP, M - mobile, B - BGP
+       D - EIGRP, EX - EIGRP external, O - OSPF, IA - OSPF inter area
+       N1 - OSPF NSSA external type 1, N2 - OSPF NSSA external type 2
+       E1 - OSPF external type 1, E2 - OSPF external type 2
+       i - IS-IS, su - IS-IS summary, L1 - IS-IS level-1, L2 - IS-IS level-2
+       ia - IS-IS inter area, * - candidate default, U - per-user static route
+       o - ODR, P - periodic downloaded static route
+
+Gateway of last resort is not set
+
+R    192.168.10.0/24 [120/2] via 192.168.11.2, 00:00:03, Ethernet0/0
+     192.168.11.0/30 is subnetted, 1 subnets
+C       192.168.11.0 is directly connected, Ethernet0/0
+     192.168.0.0/32 is subnetted, 1 subnets
+C       192.168.0.1 is directly connected, Loopback0
+R1#show running-config
+Building configuration...
+
+Current configuration : 1019 bytes
+!
+version 12.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname R1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+no aaa new-model
+memory-size iomem 5
+no ip icmp rate-limit unreachable
+!
+!
+ip cef
+no ip domain lookup
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+ip tcp synwait-time 5
+!
+!
+!
+interface Loopback0
+ ip address 192.168.0.1 255.255.255.255
+!
+interface Ethernet0/0
+ ip address 192.168.11.1 255.255.255.252
+ half-duplex
+!
+interface Ethernet0/1
+ no ip address
+ shutdown
+ half-duplex
+!
+interface Ethernet0/2
+ no ip address
+ shutdown
+ half-duplex
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+ half-duplex
+!
+!
+router rip
+ version 2
+ network 192.168.11.0
+!
+no ip http server
+ip forward-protocol nd
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+banner motd ^C 2020-11-21 12:00:16 D44fsUzb6GUGc466 ^C
+!
+line con 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line aux 0
+ exec-timeout 0 0
+ privilege level 15
+ logging synchronous
+line vty 0 4
+ login
+!
+!
+end
+
+R1#
+

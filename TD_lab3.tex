@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt,notitlepage]{article}
 
+\usepackage[svgnames]{xcolor}
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{mathtools}
 \usepackage[math]{fontspec}
@@ -8,6 +9,11 @@
 \usepackage{bookmark}
 \usepackage[margin=1in]{geometry}
 \usepackage[babel=true, tracking=true]{microtype}
+\usepackage{minted}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+\setminted{frame=single, bgcolor=bg, breaklines=true}
+\setmintedinline{bgcolor=white}
 
 \linespread{1.3}
 \setlength{\parindent}{0pt}
@@ -19,5 +25,25 @@
 \begin{document}
 
 \maketitle
+\section{Schemat adresacji}
 
+\section{show cdp neighbours i show ip route po ustawieniu ip R1-R5}
+\inputminted[label=Przełączanie na ipv6, firstline=152, lastline=170]{text}{R1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=293, lastline=316]{text}{R2_1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=210, lastline=237]{text}{R5.txt}
+\section{show ip ospf i show ip route po ospf network R1-R5}
+\inputminted[label=Przełączanie na ipv6, firstline=228, lastline=279]{text}{R1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=366, lastline=422]{text}{R2_1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=285, lastline=339]{text}{R5.txt}
+\section{show ip ospf dataabse R5}
+\inputminted[label=Przełączanie na ipv6, firstline=366, lastline=595]{text}{R5.txt}
+\section{show ip ospf databse po zmianie area dla R1 i R5}
+\inputminted[label=Przełączanie na ipv6, firstline=309, lastline=390]{text}{R1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=597, lastline=680]{text}{R5.txt}
+\section{tu omowic routing table z r1 to chyba najgorze xddd}
+jeszcze tu jakies banwidth link r2-r4 nwm o co cho
+znowu ping i traceroute r4 do r1
+\section{show ip route R1-R5 po zmianie na RIP i database na R5}
+\inputminted[label=Przełączanie na ipv6, firstline=829, lastline=844]{text}{R1.txt}
+\inputminted[label=Przełączanie na ipv6, firstline=709, lastline=817]{text}{R5.txt}
 \end{document}
