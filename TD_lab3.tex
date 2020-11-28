@@ -17,12 +17,11 @@
 
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
 \setminted{frame=single, bgcolor=bg, breaklines=true}
-\setmintedinline{bgcolor=white}
 
 \linespread{1.3}
 \setlength{\parindent}{0pt}
 
-\title{\textbf{TD -- laboratoria 3}}
+\title{\textbf{TD -- laboratorium 3}}
 \author{Piotr Rogulski 305867 \\ Szymon Sieradzki 305881}
 \date{\today}
 
@@ -69,7 +68,27 @@
     \end{tabular}
 \end{table}
 
+\begin{table}[!htb]
+    \caption{Adresacja interfejsów loopback}
+    \centering
+    \begin{tabular}{*2c}
+        \hline\hline
+            \textbf{Router} & \textbf{Loopback IP} \\
+        \hline
+            R1 & 192.168.0.1 \\
+            R2 & 192.168.0.2 \\
+            R3 & 192.168.0.3 \\
+            R4 & 192.168.0.4 \\
+            R5 & 192.168.0.5 \\
+        \hline\hline
+    \end{tabular}
+\end{table}
+
 \section{Podstawowa konfiguracja urządzenia}
+
+W początkowej konfiguracji urządzeń każdemu interfejsowi na każdym routerze przypisano adres IP komendą \mintinline{text}{ip address <ip address> <mask>} a następnie potwierdzono pomyślne przypisanie komendami \mintinline{text}{show cdp neighbors} oraz \mintinline{text}{show ip route}.
+
+Na każdym z routerów wpisów w tablicy trasowania jest tyle, ile skonfigurowanych interfejsów, każdy w innej podsieci. Routery mogą obecnie wysyłać pakiety tylko do bezpośrednio połączonych urządzeń.
 
 \subsection*{Router R1}
 \inputminted[label=\#show cdp neighbors, firstline=156, lastline=157]{text}{R1.txt}%
@@ -97,6 +116,8 @@
 \inputminted[label=\#show ip route, firstline=232, lastline=237]{text}{R5.txt}
 
 \section{Wstępna konfiguracja protokołu OSPF}
+
+Aby móc wysyłać pakiety IP po sieci, potrzebny jest protokół trasowania taki, jak OSPF. Na razie cała sieć jest w obszarze 0. Należy także skonfigurować interfejsy loopback komendą \mintinline{text}{ip address <loopback ip> 255.255.255.255} -- ich adresy IP będą one użyte przez Cisco IOS jako identyfikatory routerów. Protokół OSPF został skonfigurowany na każdym z routerów komendą \mintinline{text}{network <prefix> <wildcard-mask> area 0}.
 
 \inputminted[label=Router R1, firstline=228, lastline=279]{text}{R1.txt}
 \inputminted[label=Router R2, firstline=366, lastline=422]{text}{R2_1.txt}
