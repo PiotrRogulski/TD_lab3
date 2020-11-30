@@ -127,14 +127,35 @@ Aby móc wysyłać pakiety IP po sieci, potrzebny jest protokół trasowania tak
 
 \section{Baza danych OSPF}
 
+Domyślnie wszystkie połączenia między routerami mają skonfigurowany typ broadcastowy, w rzeczywistości są one jednak point-to-point. By uniknąć zbędnego wyznaczania routerów DR i BDR, należy zmienić typ połączenia na odpowiednich interfejsach przy pomocy \mintinline{text}{ip ospf network point-to-point}. Point-to-point został skonfigurowany na połączeniach R2-R3, R2-R4, R4-R5 i R3-R5. 
+
+W bazie danych OSPF znajdują się $5$ wiadomości router LSA i $2$ wiadomości network LSA. Wiadomości router LSA R5 otrzymuje od każdego routera w obszarze, w tym od samego siebie, dlatego jest ich $5$, network LSA wysyłają routery DR, w tym przypadku R1-R2 i R3-R4 nie są połączone point-to-point, dlatego R1 i R3 są routerami DR. 
+
+Analizując informacje zwracane przez \mintinline{text}{show ip ospf database router} można zauważyć, że router R3 (adres loopback 192.168.0.3) jest połączony z samym sobą (adres 192.168.10.17) jako DR oraz z routerami R2 i R5 przez point-to-point.
+
 \inputminted[label=Router R5, firstline=366, lastline=595]{text}{R5.txt}
 
 \section{Wieloobszarowy OSPF}
 
+W celu stworzenia wieloobszarowego OSPF zmieniony zostaje obszar interfejsu R1-R2 na 1 przy użyciu komendy  \mintinline{text}{network <prefix> <wildcard-mask> area 1}. Router R2 jako jedyny posiada interfejsy w obydwóch obszarach, więc staje się routerem ABR. W celu weryfikacji topologii sieci na routerze R1 (obszar 1) i R5 (obszar 0) zostają wykonane  \mintinline{text}{show ip ospf database} i \mintinline{text}{show ip ospf database summary}.
+
+Na podstawie informacji z wywołania komendy \mintinline{text}{show ip ospf database} R1 otrzymuje router LSA z R1 i R2, a R5 otrzymuje router LSA z R2, R3, R4, R5. R1 jest dodatkowo połączony przez R2(ABR) z podsieciami obszaru 0, R5 jest połączony przez R2 z podsiecią R1-R2. 
+
+Komenda \mintinline{text}{show ip ospf database summary} pozwala uzyskać więcej informacji na temat summary network LSA - wiadomości uzyskiwanych od routerów ABR, oznaczających podsieci z innego obszaru. Dla R1 są to podsieci 192.168.10.0, 192.168.10.4 i 192.168.10.16, dla R5 jest to 192.168.11.0.
 \inputminted[label=Router R1, firstline=309, lastline=390]{text}{R1.txt}
-\inputminted[label=Router R5, firstline=597, lastline=680]{text}{R5.txt}
+\inputminted[label=Router R5, firstline=638, lastline=680]{text}{R5.txt}
 
 \section{Koszty łącza OSPF}
+
+W celu weryfikacji czy i jakimi ścieżkami routery przesyłają między sobą informacje, z routera R4 spingowany zostaje interfejs e0/0 routera R1 przy użyciu komend   \mintinline{text}{ping <ip-address>} oraz  \mintinline{text}{traceroute <ip-address>}. Pingowanie kończy się sukcesem, dane zostają przesłane. 
+
+Ścieżka przesyłu podana przez traceroute zgadza się z topologią sieci - dane przesyłane są na router R2 (adres 192.168.10.1 dla interfejsu R2-R4), a następnie na R1 (adres 192.168.11.1).
+
+Koszty przesyłu z R1 TBD
+
+Bandwidth R2-R4 TBD
+
+Koszt połączenia R2-R4 zostaje ustawiony na 100, zmiana ta jest widoczna w \mintinline{text}{show ip ospf interface} wywołanym na R2. Ponowne spingowanie R1 z R4 przy pomocy traceroute daje inny rezultat - ospf wybiera najkrótszą ścieżkę, a ta nie wiedzie teraz przez R2-R4. Zgodnie z topologią sieci najkrótsza ścieżka to teraz R4-R3-R2-R1.
 
 \inputminted[label=Router R4 - \#ping 192.168.11.1, firstline=377, lastline=379]{text}{R4.txt}
 \inputminted[label=Router R4 - \#traceroute 192.168.11.1, firstline=394, lastline=397]{text}{R4.txt}
