@@ -159,7 +159,7 @@ W celu weryfikacji czy i jakimi ścieżkami routery przesyłają między sobą i
         \hline\hline
             \textbf{Podsieć} & \textbf{Koszt połączenia} \\
         \hline
-            192.168.0.0/32 (loopback) & bezpośrednio połączony \\
+            192.168.0.1/32 (loopback) & bezpośrednio połączony \\
             192.168.11.0/30 & bezpośrednio połączony \\
             192.168.10.0/30 & 20 \\
             192.168.10.4/30 & 20 \\
@@ -185,9 +185,9 @@ Koszt połączenia R2--R4 zostaje ustawiony na obu routerach na 100, zmiana ta j
 \inputminted[label=Router R4 - \#traceroute 192.168.11.1, firstline=541, lastline=545]{text}{R4.txt}
 
 \section{Redystrybucja tras}
-Router R1 jest połączony bezpośrednio wyłącznie z R2, uzasadnionym jest zatem zmiana protokołu połączenia R1-R2 z OSPF na RIP. W tym celu OSPF zostaje wyłączony na R1, a RIP zostaje włączony na R1 i R2, na nowo skonfigurowane zostają adresy. Komenda \mintinline{text}{show ip route} wywołana na R5 wskazuje, że interfejs R1-R2 przestał być interfejsem inter-area. Zgadza się to z wprowadzonymi zmianami, ponieważ R1-R2 nie tworzą teraz obszaru OSPF. 
+Router R1 jest połączony bezpośrednio wyłącznie z R2, uzasadniona jest zatem zmiana protokołu połączenia R1--R2 z OSPF na RIP. W tym celu OSPF zostaje wyłączony na R1, a RIP zostaje włączony na R1 i R2, na nowo skonfigurowane zostają adresy. Komenda \mintinline{text}{show ip route} wywołana na R5 wskazuje, że interfejs R1--R2 przestał być interfejsem inter-area. Zgadza się to z wprowadzonymi zmianami, ponieważ R1--R2 nie tworzą teraz obszaru OSPF.
 
-Komenda \mintinline{text}{show ip ospf database router} pokazuje z kolei, że R2 z ID 192.168.0.2 jest ASBR routerem, na podstawie  \mintinline{text}{show ip ospf database external} wiadomo, że łączy on R5 z siecią 192.168.11.0 (R2 jest Advertising Routerem), co zgadza się z założoną topologią sieci. Metryka dostępu do tej sieci wynosi 100, wynika to z faktu, że na R2 ustawiliśmy default-metric na 100, przy usunięciu R1-R2 z OSPF. Wówczas zaszła zmiana topologii sieci więc trasa do R5 została zredystrybuowana. Przy drugiej zmianie metryki, nie doszło do zmiany w obszarze OSPF, więc metryka dla R5 się nie zmieniła.
+Komenda \mintinline{text}{show ip ospf database router} pokazuje z kolei, że R2 z ID 192.168.0.2 jest routerem ASBR. Na podstawie \mintinline{text}{show ip ospf database external} wiadomo, że łączy on R5 z siecią 192.168.11.0 (R2 jest Advertising Routerem), co zgadza się z założoną topologią sieci. Metryka dostępu do tej sieci wynosi 100, wynika to z faktu, że na R2 ustawiliśmy default-metric na 100, przy usunięciu R1--R2 z OSPF. Wówczas zaszła zmiana topologii sieci, więc trasa do R5 została zredystrybuowana. Przy drugiej zmianie metryki, nie doszło do zmiany w obszarze OSPF, więc metryka dla R5 się nie zmieniła.
 \inputminted[label=Router R1 - \#show ip route, firstline=838, lastline=844]{text}{R1.txt}
 \inputminted[label=Router R5 - \#show ip route, firstline=718, lastline=728]{text}{R5.txt}
 
